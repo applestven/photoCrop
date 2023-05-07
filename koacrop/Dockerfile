@@ -10,7 +10,7 @@ ADD ./ /service
 RUN chmod 755 /service
 
 # 安装依赖
-WORKDIR /service/koa
+WORKDIR /service/koacrop
 RUN npm config set registry http://registry.npmmirror.com
 RUN npm install -g npm@9.6.5
 RUN npm install
