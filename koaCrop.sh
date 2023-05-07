@@ -10,7 +10,7 @@
 if docker inspect --format '{{.State.Running}}' mariadb-crop; then
     echo "Container is already running"
 else
-    docker rm koa-crop
+    docker rm mariadb-crop
     docker run -d -e MYSQL_USER=nextcloud -e MYSQL_ROOT_PASSWORD=12345687 -e MYSQL_DATABASE=nextcloud -p 3306:3306 --name mariadb-crop mariadb:latest
 fi
 
