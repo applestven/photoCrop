@@ -22,12 +22,18 @@ docker pull applestven/koa-crop:latest
 # docker run -d -p 8282:3000 --name nodejstest applestven/nodejstest:latest sh -c "npm i && pm2 start /service/koa/src/main.js --no-daemon"
 docker run -d -p 8282:3000 --name koa-crop applestven/koa-crop:latest
 
-docker stop nextcloud-crop
-docker rm nextcloud-crop
-docker pull applestven/nextcloud-crop:latest
-# docker run -d -p 8282:3000 --name nodejstest applestven/nodejstest:latest sh -c "npm i && pm2 start /service/koa/src/main.js --no-daemon"
-docker run -d -p 8080:80 --name nextcloud-crop applestven/nextcloud-crop:latest
+# docker stop nextcloud-crop
+# docker rm nextcloud-crop
+# docker pull applestven/nextcloud-crop:latest
+# docker run -d -p 8080:80 --name nextcloud-crop applestven/nextcloud-crop:latest
 
+
+if docker inspect --format '{{.State.Running}}' nextcloud-crop; then
+    echo "nextcloud-crop is already running"
+else
+    docker pull applestven/nextcloud-crop:latest
+    docker run -d -p 8080:80 --name nextcloud-crop applestven/nextcloud-crop:latest
+fi
 
 # 要停止所有的Docker镜像，可以使用以下命令 docker stop $(docker ps -aq)  
 # 删除所有容器 docker rm $(docker ps -aq)
