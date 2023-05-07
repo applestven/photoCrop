@@ -1,8 +1,8 @@
 FROM mariadb
 
 # Create a new user and group
-RUN groupadd -r mysql && useradd -r -g mysql mysql \
-    && chown -R mysql:mysql /var/lib/mysql
+RUN getent group mysql || groupadd -r mysql && getent passwd mysql || useradd -r -g mysql mysql
+
 
 # Set environment variables
 ENV MYSQL_ROOT_PASSWORD=12345687
