@@ -38,8 +38,8 @@ jobs:
           context: .
           file: ./vuecrop/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}  #上一步所拿到的tags，默认是分支名字
-          labels: ${{ steps.meta.outputs.labels }} # 上一步所拿到的labels
+          tags: applestven/vue-crop:latest  #上一步所拿到的tags，默认是分支名字
+          # labels: ${{ steps.meta.outputs.labels }} # 上一步所拿到的labels
       # - name: Build and push
       #   uses: docker/build-push-action@v2
       #   with:
