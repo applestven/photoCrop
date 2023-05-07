@@ -21,5 +21,5 @@ RUN npm install pm2 -g
 EXPOSE 3000
 
 # 使用守护进程管理工具启动应用程序
-CMD ["pm2-runtime", "/service/koa/src/main.js"]
+CMD ["pm2-runtime", "/service/koacrop/src/main.js"]
 
