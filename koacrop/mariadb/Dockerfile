@@ -1,0 +1,9 @@
+FROM mariadb
+CMD ["--transaction-isolation=READ-COMMITTED", "--binlog-format=ROW"]
+ENV MYSQL_ROOT_PASSWORD=12345687
+ENV MYSQL_USER=nextcloud
+ENV MYSQL_PASSWORD=
+ENV MYSQL_DATABASE=nextcloud
+VOLUME ["/var/lib/mysql"]
+EXPOSE 3306/tcp
+ENTRYPOINT ["mysqld"]

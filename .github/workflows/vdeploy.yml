@@ -1,0 +1,57 @@
+name: GitHub Actions Build and Deploy Demo
+on:
+  push:
+    branches:
+      - latest
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false    
+      - name: Install and Build
+        run: |
+          cd ./vuecrop
+          yarn install
+          yarn build
+          cd ../
+      - name: Log in to Docker Hub #登陆docker
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}  #docker的用户名
+          password: ${{ secrets.DOCKER_PASSWORD }}	#docker的密码
+
+      - name: Extract metadata (tags, labels) for Docker # 获取元数据包括tag和labels
+        id: meta
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: applestven/vite-project
+
+      - name: Build and push Docker image vuecrop  #构建和发布 docker镜像
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: .
+          file: ./vuecrop/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}  #上一步所拿到的tags，默认是分支名字
+          labels: ${{ steps.meta.outputs.labels }} # 上一步所拿到的labels
+      # - name: Build and push
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     context: .
+      #     # file: ./Dockerfile
+      #     # 所需要的体系结构，可以在 Available platforms 步骤中获取所有的可用架构  但报错
+      #     # platforms: linux/amd64,linux/arm64/v8
+      #     # 镜像推送时间
+      #     push: ${{ github.event_name != 'pull_request' }}
+      #     # 给清单打上多个标签
+      #     tags: ${{ steps.meta.outputs.tags }}
+      - name: ssh docker login    # 登陆云服务器
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.TENCENT_CLOUD_IP }} #云服务器的ip
+          username: ${{ secrets.TENCENT_CLOUD_NAME }} #云服务器的用户名
+          password: ${{ secrets.TENCENT_CLOUD_PASSWORD }} #云服务器的密码
+          script: cd ~ && sh deploy.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }} #运行脚本
