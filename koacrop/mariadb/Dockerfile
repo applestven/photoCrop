@@ -21,4 +21,4 @@ EXPOSE 3306/tcp
 USER mysql
 
 # Start the MySQL daemon
-CMD ["mysqld"]
+CMD ["mysqld", "--user=mysql"]
