@@ -27,6 +27,6 @@ COPY config.php /var/www/html/config/
 # 添加启动脚本
 COPY start.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/start.sh
-
+EXPOSE 8080
 # 设置容器默认的启动命令
 CMD ["/usr/local/bin/start.sh"]
