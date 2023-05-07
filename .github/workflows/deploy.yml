@@ -54,7 +54,7 @@ jobs:
           username: ${{ secrets.TENCENT_CLOUD_NAME }}
           password: ${{ secrets.TENCENT_CLOUD_PASSWORD }}
           # port: ${{ secrets.TENCENT_CLOUD_PASSWORD  }}
-          script: cd  /home/ubuntu && sh demoforNode.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }} #运行脚本
+          script: cd  /home/ubuntu && sh koaCrop.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }} #运行脚本
 
 
 # name: GitHub Actions Build and Deploy Demo
