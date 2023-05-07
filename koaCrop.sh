@@ -6,6 +6,7 @@ docker pull applestven/mariadb-crop:latest
 docker run -d -p 3306:3306 --name mariadb-crop -v /path/on/host:/var/lib/mysql applestven/mariadb-crop:latest
 
 
+
 docker stop koa-crop
 docker rm koa-crop
 docker pull applestven/koa-crop:latest

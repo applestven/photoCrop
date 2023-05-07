@@ -1,9 +1,24 @@
 FROM mariadb
+
+# Create a new user and group
+RUN groupadd -r mysql && useradd -r -g mysql mysql \
+    && chown -R mysql:mysql /var/lib/mysql
+
+# Set environment variables
 ENV MYSQL_ROOT_PASSWORD=12345687
 ENV MYSQL_USER=nextcloud
 ENV MYSQL_PASSWORD=
 ENV MYSQL_DATABASE=nextcloud
-VOLUME ["/var/lib/mysql"]
-EXPOSE 3306/tcp
-ENTRYPOINT ["mysqld"]
 
+# Set permissions for the data directory
+VOLUME ["/var/lib/mysql"]
+RUN chown -R mysql:mysql /var/lib/mysql
+
+# Expose the MySQL port
+EXPOSE 3306/tcp
+
+# Switch to the new user
+USER mysql
+
+# Start the MySQL daemon
+CMD ["mysqld"]
