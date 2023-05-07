@@ -5,7 +5,8 @@ docker pull applestven/mariadb-crop:latest
 # docker run -d -p 3306:3306 --name mariadb-crop 
 # docker run -d -p 3306:3306 --name mariadb-crop -v /path/on/host:/var/lib/mysql applestven/mariadb-crop:latest 
 
-docker run -d -e MYSQL_USER=nextcloud -e MYSQL_ROOT_PASSWORD=12345687 -e MYSQL_DATABASE=nextcloud -p 3306:3306 --name mariadb:latest
+docker run -d -e MYSQL_USER=nextcloud -e MYSQL_ROOT_PASSWORD=12345687 -e MYSQL_DATABASE=nextcloud -p 3306:3306 --name mariadb-crop mariadb:latest
+
 
 
 
