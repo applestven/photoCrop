@@ -35,7 +35,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
-          file: ./vuecrop/mariadb/Dockerfile
+          file: ./koa-crop/mariadb/Dockerfile
           push: true
           tags: applestven/mariadb-crop:latest  #上一步所拿到的tags，默认是分支名字
       - 
@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
-          file: ./vuecrop/nextcloud/Dockerfile
+          file: ./koa-crop/nextcloud/Dockerfile
           push: true
           tags: applestven/nextcloud-crop:latest  #上一步所拿到的tags，默认是分支名字    
       - 
