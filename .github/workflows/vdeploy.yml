@@ -33,7 +33,7 @@ jobs:
           images: applestven/vite-project
 
       - name: Build and push Docker image vuecrop  #构建和发布 docker镜像
-        uses: docker/build-push-action@ad44023a193711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@2
         with:
           context: .
           file: ./vuecrop/Dockerfile

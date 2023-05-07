@@ -32,7 +32,7 @@ jobs:
           tags: applestven/koa-crop:latest
       - 
         name: Build and push Docker image mariadbCrop  #构建和发布 mariadb-latest:latest
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@2
         with:
           context: .
           file: ./koa-crop/mariadb/Dockerfile
@@ -40,7 +40,7 @@ jobs:
           tags: applestven/mariadb-crop:latest  #上一步所拿到的tags，默认是分支名字
       - 
         name: Build and push Docker image nextcloudCrop  #构建和发布 nextcloud-latest:latest
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@2
         with:
           context: .
           file: ./koa-crop/nextcloud/Dockerfile
