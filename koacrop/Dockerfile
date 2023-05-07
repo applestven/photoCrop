@@ -18,7 +18,7 @@ RUN npm install pm2 -g
 # RUN pm2 start /service/koa/src/main.js
 
 # 暴露端口
-EXPOSE 3000
+EXPOSE 80
 
 # 使用守护进程管理工具启动应用程序
 CMD ["pm2-runtime", "/service/koacrop/src/main.js"]

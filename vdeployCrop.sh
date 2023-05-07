@@ -9,5 +9,5 @@ docker rmi applestven/applestven:latest
 echo -e "---------docker Pull--------"
 docker pull applestven/vue-crop:latest 
 echo -e "---------docker Create and Start--------"
-docker run --rm -d -p 9943:80 --name vue-crop applestven/vue-crop:latest
+docker run --rm -d -p 80:80 --name vue-crop applestven/vue-crop:latest
 echo -e "---------deploy Success--------"
