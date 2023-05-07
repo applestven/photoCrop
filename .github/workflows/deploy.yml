@@ -30,14 +30,14 @@ jobs:
           file: ./koacrop/Dockerfile
           push: true
           tags: applestven/koa-crop:latest
-      - 
-        name: Build and push Docker image mariadbCrop  #构建和发布 mariadb-latest:latest
-        uses: docker/build-push-action@v2
-        with:
-          # context: .
-          file: ./koacrop/mariadb/Dockerfile
-          push: true
-          tags: applestven/mariadb-crop:latest  
+      # - 
+      #   name: Build and push Docker image mariadbCrop  #构建和发布 mariadb-latest:latest
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     # context: .
+      #     file: ./koacrop/mariadb/Dockerfile
+      #     push: true
+      #     tags: applestven/mariadb-crop:latest  
       - 
         name: Build and push Docker image nextcloudCrop  #构建和发布 nextcloud-latest:latest
         uses: docker/build-push-action@v2
