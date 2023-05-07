@@ -1,5 +1,5 @@
 FROM mariadb
-
+USER root
 # Create a new user and group
 RUN getent group mysql || groupadd -r mysql && getent passwd mysql || useradd -r -g mysql mysql
 RUN chown -R mysql:mysql /var/lib/mysql
