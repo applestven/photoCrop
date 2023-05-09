@@ -8,7 +8,8 @@
 # docker run -d -e MYSQL_USER=nextcloud -e MYSQL_ROOT_PASSWORD=12345687 -e MYSQL_DATABASE=nextcloud -p 3306:3306 --name mariadb-crop mariadb:latest
 
 if docker inspect --format '{{.State.Running}}' mariadb-crop; then
-    echo "Container is already running"
+    echo "mariadb-crop is already running"
+    docker run -d -e MYSQL_USER=nextcloud -e MYSQL_ROOT_PASSWORD=12345687 -e MYSQL_DATABASE=nextcloud -p 3306:3306 --name mariadb-crop mariadb:latest
 else
     docker rm mariadb-crop
     docker run -d -e MYSQL_USER=nextcloud -e MYSQL_ROOT_PASSWORD=12345687 -e MYSQL_DATABASE=nextcloud -p 3306:3306 --name mariadb-crop mariadb:latest
@@ -31,6 +32,7 @@ docker run -d -p 8282:3000 --name koa-crop applestven/koa-crop:latest
 
 if docker inspect --format '{{.State.Running}}' nextcloud-crop; then
     echo "nextcloud-crop is already running"
+    docker run -d -p 8080:80 --name nextcloud-crop applestven/nextcloud-crop:latest
 else
     docker rm nextcloud-crop
     docker pull applestven/nextcloud-crop:latest
