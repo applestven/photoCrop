@@ -7,13 +7,24 @@
 
 # docker run -d -e MYSQL_USER=nextcloud -e MYSQL_ROOT_PASSWORD=12345687 -e MYSQL_DATABASE=nextcloud -p 3306:3306 --name mariadb-crop mariadb:latest
 
-if docker inspect --format '{{.State.Running}}' mariadb-crop; then
-    echo "mariadb-crop is already running"
-    docker run -d -e MYSQL_USER=nextcloud -e MYSQL_ROOT_PASSWORD=12345687 -e MYSQL_DATABASE=nextcloud -p 3306:3306 --name mariadb-crop mariadb:latest
+# if docker inspect --format '{{.State.Running}}' mariadb-crop; then
+#     echo "mariadb-crop is already running"
+#     docker run -d -e MYSQL_USER=nextcloud -e MYSQL_ROOT_PASSWORD=12345687 -e MYSQL_DATABASE=nextcloud -p 3306:3306 --name mariadb-crop mariadb:latest
+# else
+#     docker rm mariadb-crop
+#     docker run -d -e MYSQL_USER=nextcloud -e MYSQL_ROOT_PASSWORD=12345687 -e MYSQL_DATABASE=nextcloud -p 3306:3306 --name mariadb-crop mariadb:latest
+# fi
+
+#!/bin/bash
+
+if [[ "$(docker inspect -f '{{.State.Running}}' mariadb-crop)" == "true" ]]; then
+    echo "mariadb-crop container is running."
 else
+    echo "mariadb-crop container is not running."
     docker rm mariadb-crop
     docker run -d -e MYSQL_USER=nextcloud -e MYSQL_ROOT_PASSWORD=12345687 -e MYSQL_DATABASE=nextcloud -p 3306:3306 --name mariadb-crop mariadb:latest
 fi
+
 
 
 
