@@ -17,7 +17,7 @@
 
 #!/bin/bash
 
-if [[ "$(docker inspect -f '{{.State.Running}}' mariadb-crop)" == "true" ]]; then
+if [[ "$(docker inspect -f '{{.State.Running}}' mariadb-crop)" ]]; then
     echo "mariadb-crop container is running."
 else
     echo "mariadb-crop container is not running."
