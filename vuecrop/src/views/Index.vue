@@ -12,7 +12,7 @@
         <!-- 弹窗视频 -->
         <van-dialog v-model="dialogFlag" title="如何复制订单编号" width="90%">
             <div style="font-size:12px" class="padding10 taleft mb15 mt30">
-                如何复制订单编号: 找到订单编号，复制带框内，点击[验证] 后进行传图。(如有需要联系客服)
+                如何复制订单编号: 找到订单编号，复制带框内，点击[验证] 后进行传图。(如有需要联系客服)  
             </div>
             <video v-if="dialogFlag" src="../../public/4k.mp4" style="width:100%;" controls="controls" autoplay></video>
         </van-dialog>
