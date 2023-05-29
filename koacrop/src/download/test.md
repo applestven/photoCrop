@@ -1,17 +1,5 @@
-一、注意事项:  
-1\.如果品类选择网形贴纸或者方形贴纸，尺寸的长和宽请填写同一数值。  
-2\.如果同一尺寸的订单含有多种工艺，选择其中一种即可.  
-二、常规参考尺寸:  
-1\.小卡:图角小卡86\*54mm、直角小卡90\*54mm  
-2\.3寸LOMO:9054mm  
-3\.4寸LOMO:102\*76mm  
-4\.李飞小卡: 85\*63mm  
-5\.方卡:90\*90mm  
-6\.明信片:148\*100mm  
-7\.书签:148\*50mm  
-8\.手幅:440\*148.5mm  
-9\.海报:A3海报291\*414mm、A4海报204\*291mm、A5  
-海报145\*207mm  
-10\.不干胶贴纸: 圆形贴纸30mm、40mm、50mm、60mm70mm、80mm 方形贴纸 30mm、40mm、50mm、60mm  
-70mm80mm  
-11\.直拍封面:90\*50mm
+<?xml version="1.0" encoding="utf-8"?>
+<d:error xmlns:d="DAV:" xmlns:s="http://sabredav.org/ns">
+  <s:exception>Sabre\DAV\Exception\NotAuthenticated</s:exception>
+  <s:message>No public access to this resource., Username or password was incorrect, No 'Authorization: Bearer' header found. Either the client didn't send one, or the server is mis-configured, Username or password was incorrect</s:message>
+</d:error>
